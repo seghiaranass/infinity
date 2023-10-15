@@ -1,0 +1,5 @@
+<templates>
+    <t t-name="FieldCounter" owl="1">
+        <input type="text" class="input_counter" t-ref="inputCounter" readonly="readonly" />
+    </t>
+</templates>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="sale_add_counter_column.ListView.Buttons" t-inherit="web.ListView.Buttons">
+
+    </t>
+ </templates>
+ 

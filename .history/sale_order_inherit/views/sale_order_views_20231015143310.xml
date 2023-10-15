@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/form" position="attributes">
+               <attribute name="js_class">js_class="sale_order_inherit.sale_order_scripts</attribute>
+            </xpath>
+            <xpath expr="//tree/control" position="attributes">
+               <attribute name="class">product_tree_table</attribute>
+            </xpath>
+            <xpath expr="//tree/control" position="after">
+                <field name="row_counter_column" class="counter_column"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
+
+
+<!-- let ss = document.querySelectorAll('.counter_column');
+undefined
+ss.forEach((elem,index)=>{
+
+    elem.querySelector('span').textContent = index + 1;
+    
+}); -->

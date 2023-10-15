@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+   <t t-name="add_counter_column.ListView.Buttons" t-inherit="web.ListView.Buttons">
+       <xpath expr="//page/tree" position="before">
+
+       </xpath>
+   </t>
+</templates>
