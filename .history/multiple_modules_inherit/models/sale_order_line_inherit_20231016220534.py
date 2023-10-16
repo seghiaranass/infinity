@@ -9,4 +9,4 @@ class SaleOrderLineInherit(models.Model):
 
     def _compute_row_countner_column_field(self):
         for index, record in enumerate(self, start=1):
-            record.row_counter_column = str(index)
+            record.tooltip_field = str(index)

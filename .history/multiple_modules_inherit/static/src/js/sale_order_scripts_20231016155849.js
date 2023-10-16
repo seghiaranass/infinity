@@ -1,0 +1,37 @@
+try{
+    document.addEventListener("DOMContentLoaded", function () {
+        var targetNode = document.querySelector('body');
+        var config = { attributes: false, childList: true, subtree: true };
+    
+    
+        var callback = function (mutationsList, observer) {
+            is_balance = is_facture = false;
+            for (var mutation of mutationsList) {
+                if (mutation.addedNodes.length) {
+    
+                    mutation.addedNodes.forEach(function(node) {
+                        try{
+    
+                            if(node.classList && node.classList.contains('counter_column')){
+                                let getAllTds = document.querySelectorAll('td.counter_column')
+                                console.log(getAllTds);
+                                getAllTds.forEach((td,index)=>{
+                                  td.textContent = index + 1;
+                                })
+                          }
+                        }catch(e){
+                            
+                        }
+    
+                    });
+    
+                }
+            }
+        };
+    
+        var observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+    });
+}catch(e){
+    
+}
