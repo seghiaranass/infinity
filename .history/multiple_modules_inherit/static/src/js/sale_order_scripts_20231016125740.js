@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var targetNode = document.querySelector('body');
+    var targetNode = document.querySelector('.row_colum_counter_numbre_table');
     var config = { attributes: false, childList: true, subtree: true };
 
 
@@ -17,8 +17,20 @@ document.addEventListener("DOMContentLoaded", function () {
                           })
                     }
 
+                    if(node.classList && node.classList.contains('row_colum_counter_numbre_table')){
+                          let getAllTds = document.querySelectorAll('.row_colum_counter_numbre_table td.counter_column')
+                          getAllTds.forEach((td,index)=>{
+                            td.textContent = index + 1;
+                            // test is only test
+                          })
+                    }
+
+
                 });
 
+                if (isTargetAdded) {
+                    processMonths();
+                }
             }
         }
     };

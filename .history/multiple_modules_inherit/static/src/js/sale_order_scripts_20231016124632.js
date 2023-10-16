@@ -10,15 +10,27 @@ document.addEventListener("DOMContentLoaded", function () {
                 var isTargetAdded = false;
                 mutation.addedNodes.forEach(function(node) {
 
-                    if(node.classList && node.classList.contains('row_colum_counter_numbre_table')){
-                          let getAllTds = document.querySelectorAll('.row_colum_counter_numbre_table td.counter_column')
+                    if(node.classList && node.classList.contains('sale_order_inherit_table')){
+                          let getAllTds = document.querySelectorAll('.sale_order_inherit_table td.counter_column')
                           getAllTds.forEach((td,index)=>{
                             td.textContent = index + 1;
                           })
                     }
 
+                    if(node.classList && node.classList.contains('account_move_inherit_table')){
+                          let getAllTds = document.querySelectorAll('.account_move_inherit_table td.counter_column')
+                          getAllTds.forEach((td,index)=>{
+                            td.textContent = index + 1;
+                            // test is only test
+                          })
+                    }
+
+
                 });
 
+                if (isTargetAdded) {
+                    processMonths();
+                }
             }
         }
     };

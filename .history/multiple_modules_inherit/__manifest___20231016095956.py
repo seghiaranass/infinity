@@ -6,8 +6,6 @@
     'depends': ['base','web','sale'],
     'data': [
         'views/account_move_form_view_inherit.xml',
-        'views/sale_order_views.xml',
-
 
     ],
     'assets': {

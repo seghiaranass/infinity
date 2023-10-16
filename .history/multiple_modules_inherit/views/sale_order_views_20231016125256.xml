@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//form" position="attributes">
-               <attribute name="class">row_colum_counter_numbre_table</attribute>
+               <attribute name="class">sale_order_inherit_table</attribute>
             </xpath>
 
             <xpath expr="//tree/control" position="after">
