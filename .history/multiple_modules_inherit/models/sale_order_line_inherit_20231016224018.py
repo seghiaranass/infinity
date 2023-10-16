@@ -1,13 +1,13 @@
 from odoo import fields, models, api
 
-class AccountMoveLineInherit(models.Model):
-    _inherit = "account.move.line"
+class SaleOrderLineInherit(models.Model):
+    _inherit = "sale.order.line"
 
 
     row_counter_column = fields.Char(default="0", string="#",compute="_compute_row_countner_column_field")
-    counter = 0
+
     @api.depends()
-    def _compute_row_countner_column_field(self):
+    def _compute_row_counter_column(self):
         # Fetch all records based on the current view's domain in the correct order
         domain = self.env.context.get('domain', [])
         all_records_ordered = self.search(domain, order='sequence, order_id, id')
