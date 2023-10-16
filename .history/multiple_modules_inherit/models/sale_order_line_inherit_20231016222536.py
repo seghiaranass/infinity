@@ -15,7 +15,3 @@ class SaleOrderLineInherit(models.Model):
         # Enumerate over the non-section records
         for index, record in enumerate(non_section_records, start=1):
             record.row_counter_column = str(index)
-
-        # Assign a default value for section lines or any other lines you filtered out
-        for record in (self - non_section_records):
-            record.row_counter_column = "0"  # or any other default value you see fit
