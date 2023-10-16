@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     if(node.classList && node.classList.contains('counter_column')){
                           let getAllTds = document.querySelectorAll('td.counter_column')
-                          console.log(getAllTds);
                           getAllTds.forEach((td,index)=>{
                             td.textContent = index + 1;
                           })

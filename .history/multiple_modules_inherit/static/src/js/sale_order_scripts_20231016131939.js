@@ -10,13 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 var isTargetAdded = false;
                 mutation.addedNodes.forEach(function(node) {
 
-                    if(node.classList && node.classList.contains('counter_column')){
-                          let getAllTds = document.querySelectorAll('td.counter_column')
-                          console.log(getAllTds);
+                    if(node.classList && node.classList.contains('sale_order_inherit_table')){
+                          let getAllTds = document.querySelectorAll('.sale_order_inherit_table td.counter_column')
                           getAllTds.forEach((td,index)=>{
                             td.textContent = index + 1;
                           })
                     }
+
+                    if(node.classList && node.classList.contains('account_move_inherit_table')){
+                          let getAllTds = document.querySelectorAll('.account_move_inherit_table td.counter_column')
+                          getAllTds.forEach((td,index)=>{
+                            td.textContent = index + 1;
+                            // test is only test
+                          })
+                    }
+
 
                 });
 
