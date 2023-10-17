@@ -2,24 +2,12 @@
 <template>
     <t
     t-name="rowno_in_tree.ListRenderer"
-    t-inherit="account.ListRenderer"
+    t-inherit="web.accountMoveUploadListRenderer"
     t-inherit-mode="extension"
     owl="1"
 
 >
-    <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
-        <th class="row_no">#</th>
-    </xpath>
-
-</t>
-    <t
-    t-name="rowno_in_tree.ListRenderer"
-    t-inherit="web.ListRenderer"
-    t-inherit-mode="extension"
-    owl="1"
-
->
-    <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
+    <xpath expr="//table/thead/tr/th[1]" position="before">
         <th class="row_no">#</th>
     </xpath>
 

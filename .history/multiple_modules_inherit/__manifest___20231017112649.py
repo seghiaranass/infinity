@@ -5,7 +5,7 @@
     'category': 'Sales',
     'depends': ['base','web','sale','account'],
     'data': [
-        # 'views/add_column_number.xml',
+        'views/add_column_number.xml',
        
 
 
@@ -14,6 +14,7 @@
         'web.assets_backend': [
             # "multiple_modules_inherit/static/src/js/sale_order_scripts.js",
              'multiple_modules_inherit/static/src/xml/sale_order_views.xml',
+             'multiple_modules_inherit/static/src/xml/add_column_number.xml',
         ]
         
         

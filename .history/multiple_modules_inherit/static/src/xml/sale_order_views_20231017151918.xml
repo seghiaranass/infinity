@@ -12,18 +12,6 @@
     </xpath>
 
 </t>
-    <t
-    t-name="rowno_in_tree.ListRenderer"
-    t-inherit="web.ListRenderer"
-    t-inherit-mode="extension"
-    owl="1"
-
->
-    <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
-        <th class="row_no">#</th>
-    </xpath>
-
-</t>
 
 
 

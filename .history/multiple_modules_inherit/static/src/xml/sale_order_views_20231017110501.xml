@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
-    <t
-    t-name="rowno_in_tree.ListRenderer"
-    t-inherit="account.ListRenderer"
-    t-inherit-mode="extension"
-    owl="1"
-
->
-    <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
-        <th class="row_no">#</th>
-    </xpath>
-
-</t>
+    <t t-name="row_column_number.ListRenderer" t-inherit="account.sectionAndNoteListRenderer" t-inherit-mode="extension" owl="1">
+        <xpath expr="//table/thead/tr/th[1]" position="before">
+            <th class="row_no">#</th>
+        </xpath>
+    </t>
     <t
     t-name="rowno_in_tree.ListRenderer"
     t-inherit="web.ListRenderer"
@@ -19,25 +12,13 @@
     owl="1"
 
 >
-    <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
+    <xpath expr="//table/thead/tr/th[1]" position="before">
         <th class="row_no">#</th>
     </xpath>
-
+    <xpath expr="//div/table/tfoot/tr/td" position="before">
+        <td />
+    </xpath>
 </t>
-
-
-
-    <t t-name="row_column_number.ListRenderer" t-inherit="account.sectionAndNoteListRenderer" t-inherit-mode="extension" owl="1">
-        <xpath expr="//table/thead/tr/th[1]" position="before">
-            <th class="row_no">#</th>
-        </xpath>
-    </t>
-    <!-- <t t-name="row_column_number.ListRenderer" t-inherit="account.accountDropZone" t-inherit-mode="extension" owl="1">
-        <xpath expr="//table/thead/tr/th[1]" position="before">
-            <th class="row_no">#</th>
-        </xpath>
-    </t> -->
-
 
     <t t-name="row_column_number.add_number" t-inherit="web.ListRenderer.Rows" t-inherit-mode="extension" owl="1">
         <xpath expr="//t[@t-foreach='list.records']" position="before">
@@ -51,7 +32,7 @@
         </xpath>
     </t>
 
-    <t t-name="row_column_number.sectionAndNoteListRenderer.RecordRowNumber" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension" owl="1">
+    <t t-name="row_column_number.ListRenderer.RecordRowNumber" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension" owl="1">
         <xpath expr="//td[@class='o_list_record_selector']" position="before">
             <!-- Only show row number if it's not a section -->
             <t t-if="!record.data.display_type or record.data.display_type !== 'line_section'">

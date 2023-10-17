@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <t t-name="row_column_number.ListRenderer" t-inherit="account.sectionAndNoteListRenderer" t-inherit-mode="extension" owl="1">
+        <xpath expr="//table[contains(@class, 'o_section_and_note_list_view')]/thead/tr/th[1]" position="before">
+            <th class="row_no">#</th>
+        </xpath>
+    </t>
+
+    <t t-name="row_column_number.add_number" t-inherit="web.ListRenderer.Rows" t-inherit-mode="extension" owl="1">
+        <xpath expr="//table[contains(@class, 'o_section_and_note_list_view')]//t[@t-foreach='list.records']" position="before">
+            <t t-set="RowNumber" t-value="1" />
+        </xpath>
+        <!-- increment number but ignore line sections -->
+        <xpath expr="//table[contains(@class, 'o_section_and_note_list_view')]//t[@t-call='{{ constructor.recordRowTemplate }}']" position="after">
+            <t t-if="!record.data.display_type or record.data.display_type !== 'line_section'">
+                <t t-set="RowNumber" t-value="RowNumber+1" />
+            </t>
+        </xpath>
+    </t>
+
+    <t t-name="row_column_number.sectionAndNoteListRenderer.RecordRowNumber" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension" owl="1">
+        <xpath expr="//table[contains(@class, 'o_section_and_note_list_view')]//td[@class='o_list_record_selector']" position="before">
+            <!-- Only show row number if it's not a section -->
+            <t t-if="!record.data.display_type or record.data.display_type !== 'line_section'">
+                <td tabindex="-1">
+                    <span t-esc="RowNumber" />
+                </td>
+            </t>
+        </xpath>
+    </t>
+</template>

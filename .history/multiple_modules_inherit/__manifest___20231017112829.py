@@ -5,7 +5,7 @@
     'category': 'Sales',
     'depends': ['base','web','sale','account'],
     'data': [
-        # 'views/add_column_number.xml',
+        'views/add_column_number.xml',
        
 
 
