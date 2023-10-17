@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <t
+    t-name="rowno_in_tree.ListRenderer"
+    t-inherit="web.ListRenderer"
+    t-inherit-mode="extension"
+    owl="1"
+
+>
+    <xpath expr="//tree[@string='Sales Order Lines']" position="inside">
+        <th class="row_no">#</th>
+    </xpath>
+</t>
+
+</template>

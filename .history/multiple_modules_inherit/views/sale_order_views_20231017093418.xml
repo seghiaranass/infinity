@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <odoo>
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/control" position="after">
+                <field name="row_counter_column" class="counter_column" />
+            </xpath>
+
+        </field>
+    </record>
+</odoo> -->
+
+<template>
+    <t
+    t-name="rowno_in_tree.ListRenderer"
+    t-inherit="web.ListRenderer"
+    t-inherit-mode="extension"
+    owl="1"
+
+>
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <th class="row_no">#</th>
+    </xpath>
+    <xpath expr="/table/tbody/tr/td[1]" position="before">
+        <td>0</td>
+    </xpath>
+    <xpath expr="//div/table/tfoot/tr/td" position="before">
+        <td />
+    </xpath>
+</t>
+
+</template>

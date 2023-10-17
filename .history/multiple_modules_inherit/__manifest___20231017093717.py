@@ -3,9 +3,9 @@
     'version': '1.0',
     'summary': 'Inherit Multiple Modules and add custom JS and XML',
     'category': 'Sales',
-    'depends': ['base','web','sale','account'],
+    'depends': ['base','web','sale'],
     'data': [
-        # 'views/sale_order_views.xml',
+        # 'views/account_move_form_view_inherit.xml',
        
 
 

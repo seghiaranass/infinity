@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <t
+        t-name="rowno_in_o2m.One2ManyListRenderer"
+        t-inherit="web.One2ManyListRenderer"
+        t-inherit-mode="extension"
+        owl="1"
+    >
+        <xpath expr="//table/thead/tr/th[1]" position="before">
+            <th class="row_no">#</th>
+        </xpath>
+    </t>
+</template>
