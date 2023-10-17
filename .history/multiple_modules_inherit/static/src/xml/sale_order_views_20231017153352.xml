@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
-    <t
+    <!-- <t
     t-name="rowno_in_tree.PurchaseListRenderer"
-    t-inherit="purchase.PurchaseListView"
+    t-inherit="purchase.ListRenderer"
     t-inherit-mode="extension"
     owl="1"
 >
@@ -12,7 +12,7 @@
 <xpath expr="//div/table/tfoot/tr/td" position="before">
     <td/>
 </xpath>
-</t>
+</t> -->
 
     
     

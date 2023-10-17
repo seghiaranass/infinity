@@ -2,7 +2,7 @@
 <template>
     <t
     t-name="rowno_in_tree.PurchaseListRenderer"
-    t-inherit="purchase.PurchaseListView"
+    t-inherit="purchase.ListRenderer"
     t-inherit-mode="extension"
     owl="1"
 >
