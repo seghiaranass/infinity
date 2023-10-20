@@ -7,7 +7,7 @@
     owl="1"
 >
 <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
-    <th class="row_no">#</th>
+    <th style="width:100px; max-width:100px" class="row_no">#</th>
 </xpath>
 <xpath expr="//div/table/tfoot/tr/td" position="before">
     <td/>
@@ -26,7 +26,7 @@
 
 >
     <xpath expr="//table/thead/tr/th[@t-if='hasSelectors']" position="before">
-        <th class="row_no">#</th>
+        <th  style="width:100px !important; max-width:100px !important;" class="row_no">#</th>
     </xpath>
 
 </t>
