@@ -72,7 +72,7 @@
     <t t-name="row_column_number.sectionAndNoteListRenderer.RecordRowNumber" t-inherit="web.ListRenderer.RecordRow" t-inherit-mode="extension" owl="1">
         <xpath expr="//td[@class='o_list_record_selector']" position="before">
             <!-- Only show row number if it's not a section -->
-            <t t-if="!record.data.display_type or (record.data.display_type !== 'line_section' and record.data.display_type !== 'line_note')">
+            <t t-if="!record.data.display_type or record.data.display_type !== 'line_section'">
                 <td tabindex="-1">
                     <span t-esc="RowNumber" />
                 </td>
