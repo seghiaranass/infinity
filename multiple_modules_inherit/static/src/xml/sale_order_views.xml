@@ -63,9 +63,9 @@
         </xpath>
         <!-- increament number but ignore line sections -->
         <xpath expr="//t[@t-call='{{ constructor.recordRowTemplate }}']" position="after">
-            <t t-if="!record.data.display_type or record.data.display_type !== 'line_section'">
+            <t t-if="!record.data.display_type or (record.data.display_type !== 'line_section' and record.data.display_type !== 'line_note')">
                 <t t-set="RowNumber" t-value="RowNumber+1" />
-            </t>
+            </t>            
         </xpath>
     </t>
 
