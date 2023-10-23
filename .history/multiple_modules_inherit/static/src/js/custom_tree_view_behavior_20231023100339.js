@@ -11,10 +11,7 @@ odoo.define('multiple_modules_inherit.custom_tree_view_behavior', function(requi
             this._super.apply(this, arguments);
             this.action = useService("action");
         },
-        _onReload: function() {
-            this.reload();
-        },
-        
+
         async onCellClicked(record, column, ev) {
             if (record.resModel === 'balance') {  // Check if the model is 'balance'
                 if (!this.props.archInfo.noOpen) {

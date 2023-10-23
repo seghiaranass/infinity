@@ -2,19 +2,13 @@ odoo.define('multiple_modules_inherit.custom_tree_view_behavior', function(requi
     const { useService } = require("@web/core/utils/hooks");
     const { ListRenderer } = require('@web/views/list/list_renderer');
     const { patch } = require("@web/core/utils/patch");
-    var core = require('web.core');
-
-    var bus = core.bus;
 
     patch(ListRenderer.prototype, 'multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js', {
         setup() {
             this._super.apply(this, arguments);
             this.action = useService("action");
         },
-        _onReload: function() {
-            this.reload();
-        },
-        
+
         async onCellClicked(record, column, ev) {
             if (record.resModel === 'balance') {  // Check if the model is 'balance'
                 if (!this.props.archInfo.noOpen) {
@@ -30,8 +24,7 @@ odoo.define('multiple_modules_inherit.custom_tree_view_behavior', function(requi
                         context: record.context
                     }).then(() => {
                         // Refresh the list view after closing the dialog
-                        bus.on('reload', this, this._onReload);
-
+                        this.trigger('reload');
                     });
                     
                 } else {
