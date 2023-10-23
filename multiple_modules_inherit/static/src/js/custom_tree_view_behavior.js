@@ -14,7 +14,7 @@ odoo.define('multiple_modules_inherit.custom_tree_view_behavior', function(requi
                 if (!this.props.archInfo.noOpen) {
                     ev.preventDefault();  // Prevent default behavior
                     ev.stopPropagation();
-
+        
                     this.action.doAction({
                         type: 'ir.actions.act_window',
                         res_model: record.resModel,
@@ -22,6 +22,9 @@ odoo.define('multiple_modules_inherit.custom_tree_view_behavior', function(requi
                         views: [[false, 'form']],
                         target: 'new',
                         context: record.context
+                    }).then(() => {
+                        // Refresh the list view after closing the dialog
+                        this.trigger('reload');
                     });
                     
                 } else {
@@ -32,5 +35,6 @@ odoo.define('multiple_modules_inherit.custom_tree_view_behavior', function(requi
                 this._super.apply(this, arguments);
             }
         },
+        
     });
 });
