@@ -16,6 +16,7 @@
             "multiple_modules_inherit/static/src/js/many2many_tags_field.js",
             "multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js",
              'multiple_modules_inherit/static/src/xml/sale_order_views.xml',
+             'multiple_modules_inherit/static/src/css/style.css',
         ],
             'web.assets_qweb': [
                   "multiple_modules_inherit/static/src/js/many2many_tags_field.js",
