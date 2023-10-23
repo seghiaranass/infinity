@@ -1,3 +1,5 @@
-*{
-    display: none !important;
+.hide-right-panel{
+    position: sticky;
+    left: 100%;
+
 }
