@@ -12,8 +12,8 @@
 
 
 
-.o_section_and_note_list_view th.row_no{
-    width: 10px !important;
+.row_no{
+    width: 50px !important;
 }
 .o_section_and_note_list_view .o_list_button{
     width: 24px !important;
