@@ -12,7 +12,12 @@
 
 
 
-
+.o_section_and_note_list_view th.row_no{
+    width: 10px !important;
+}
+.o_section_and_note_list_view .o_list_button{
+    width: 24px !important;
+}
 
 .o_section_and_note_list_view th[data-name="sequence"].o_column_sortable{
     width: 7px !important;
@@ -44,12 +49,4 @@
  .o_section_and_note_list_view .o_list_controller.o_list_actions_header{
    min-width: 9px !important;
    width: 9px !important;
-}
-
-
-.o_section_and_note_list_view th.row_no{
-    width: 10px !important;
-}
-.o_section_and_note_list_view .o_list_button{
-    width: 5px !important;
 }
