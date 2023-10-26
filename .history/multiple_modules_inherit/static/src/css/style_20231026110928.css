@@ -12,6 +12,7 @@
     width: 50px !important;
 }
 .o_section_and_note_list_view .o_list_button{
+    /* max-width: 25px !important; */
     width: 24px !important;
 }
 
