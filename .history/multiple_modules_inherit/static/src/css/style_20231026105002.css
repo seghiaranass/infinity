@@ -9,7 +9,7 @@
     max-width: 25px !important;
     width: 25px !important;
 }
-.o_list_button{
+.o_list_button,.o_column_sortable{
     /* max-width: 25px !important; */
     width: 24px !important;
 }
