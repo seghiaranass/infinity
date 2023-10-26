@@ -36,14 +36,6 @@
    width: 18px !important;
 }
  .o_section_and_note_list_view th[data-name="purchase_price"]{
-   min-width: 15px !important;
-   width: 15px !important;
-}
- .o_section_and_note_list_view th[data-name="price_subtotal"]{
-   min-width: 20px !important;
-   width: 20px !important;
-}
- .o_section_and_note_list_view .o_list_controller.o_list_actions_header{
-   min-width: 9px !important;
-   width: 9px !important;
+   min-width: 18px !important;
+   width: 18px !important;
 }

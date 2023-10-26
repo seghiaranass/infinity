@@ -1,0 +1,36 @@
+.hide-right-panel{
+    position: sticky;
+    left: 100%;
+
+}
+
+
+.o_section_and_note_list_view th{
+    max-width: initial !important;
+    width: 60px !important;
+}
+
+
+
+.o_section_and_note_list_view th.row_no{
+    width: 10px !important;
+}
+.o_section_and_note_list_view .o_list_button{
+    width: 24px !important;
+}
+
+.o_section_and_note_list_view th[data-name="sequence"].o_column_sortable{
+    width: 7px !important;
+}
+
+.o_section_and_note_list_view th[data-name="product_uom_qty"]{
+    min-width: initial;
+    width: 17px !important;
+}
+
+/* .o_section_and_note_list_view th[data-name="product_uom_qty"]{
+    width: 17px !important;
+} 
+ .o_section_and_note_list_view th[data-name="product_uom_qty"] + th{
+   width: 8px !important;
+} */
