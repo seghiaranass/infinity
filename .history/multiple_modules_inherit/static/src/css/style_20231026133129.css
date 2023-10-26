@@ -31,6 +31,6 @@
 .o_section_and_note_list_view th[data-name="product_uom_qty"]{
     width: 17px !important;
 }
-/* .o_section_and_note_list_view th[data-name="product_uom_qty"] + th{
+.o_section_and_note_list_view th[data-name="product_uom_qty"] + th{
    width: 8px !important;
-} */
+}
