@@ -14,6 +14,6 @@
     width: 24px !important;
 }
 
-th[data-name="sequence"].o_column_sortable{
+th.o_column_sortable{
     width: 7px !important;
 }
