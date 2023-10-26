@@ -6,10 +6,10 @@
 
 
 .row_no{
-    max-width: 50px !important;
-    width: 50px !important;
+    max-width: 25px !important;
+    width: 25px !important;
 }
 .o_list_button,.o_column_sortable{
-    max-width: 35px !important;
-    width: 35px !important;
+    max-width: 25px !important;
+    width: 25px !important;
 }
