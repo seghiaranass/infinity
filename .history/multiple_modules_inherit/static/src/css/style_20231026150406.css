@@ -30,8 +30,8 @@
    width: 15px !important;
 }
  .o_section_and_note_list_view th[data-name="price_unit"]{
-   /* min-width: 12px !important; */
-   width: 17px !important;
+   min-width: 12px !important;
+   width: 12px !important;
 }
  .o_section_and_note_list_view th[data-name="purchase_price"]{
    min-width: 15px !important;
