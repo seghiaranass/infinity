@@ -31,12 +31,9 @@
  .o_section_and_note_list_view th[data-name="product_uom_qty"] + th{
    width: 9px !important;
 }
- .o_section_and_note_list_view th[data-name="product_uom"]{
-   width: 9px !important;
-}
  .o_section_and_note_list_view th[data-name="price_unit"]{
-   min-width: 12px !important;
-   width: 12px !important;
+   min-width: 18px !important;
+   width: 18px !important;
 }
  .o_section_and_note_list_view th[data-name="purchase_price"]{
    min-width: 15px !important;
