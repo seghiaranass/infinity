@@ -5,18 +5,20 @@
 }
 
 
+.o_section_and_note_list_view{
 
+}
 
 
 .row_no{
     max-width: 25px !important;
     width: 25px !important;
 }
-.o_section_and_note_list_view .o_list_button{
+.o_list_button{
     /* max-width: 25px !important; */
     width: 24px !important;
 }
 
-.o_section_and_note_list_view th[data-name="sequence"].o_column_sortable{
+th[data-name="sequence"].o_column_sortable{
     width: 7px !important;
 }
