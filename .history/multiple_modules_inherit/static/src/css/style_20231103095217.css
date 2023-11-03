@@ -27,7 +27,7 @@
    width: 9px !important;
 }
  .o_section_and_note_list_view th[data-name="product_uom"]{
-   width: 30px !important;
+   width: 15px !important;
 }
  .o_section_and_note_list_view th[data-name="price_unit"]{
    /* min-width: 12px !important; */
