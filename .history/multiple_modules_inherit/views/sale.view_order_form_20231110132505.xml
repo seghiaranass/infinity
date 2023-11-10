@@ -16,8 +16,7 @@
                         </group>
                     </page>
                 </xpath>
-                
-                 <!-- Add type of sale in form  view -->
+
                 <xpath expr="//group[@name='partner_details']" position="inside">
                     <field name="type_of_sale"/>
                 </xpath>
