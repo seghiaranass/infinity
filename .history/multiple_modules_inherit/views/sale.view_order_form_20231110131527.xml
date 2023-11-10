@@ -26,17 +26,5 @@
 
 
 
-        <record id="view_quotation_tree_with_onboarding_inherit" model="ir.ui.view">
-            <field name="name">sale.quotation.tree.with.onboarding.inherit</field>
-            <field name="model">sale.order</field>
-            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='name']" position="after">
-                    <!-- Add your new field here -->
-                    <field name="type_of_sale"/>
-                </xpath>
-            </field>
-        </record>
-
     </data>
 </odoo>
