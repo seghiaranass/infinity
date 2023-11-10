@@ -19,8 +19,6 @@ class SaleOrderLineInherit(models.Model):
         for record in self:
             record.row_counter_column = str(record_position_mapping.get(record.id, 0))
 
-
     @api.onchange('product_template_id')
     def _product_template_id(self):
         _logger.info("H*********************HHHHHHHHH******************************************")
-        _logger.info(self)
