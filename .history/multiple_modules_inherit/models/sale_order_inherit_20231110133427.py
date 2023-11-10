@@ -8,5 +8,6 @@ class SaleOrderInherit(models.Model):
 
     type_of_sale = fields.Selection([
         ('installation', 'Installation'),
-        ('vente_normal', 'Vente Normale')
+        ('vente_normal', 'Vente Normale',)
+        ('location', 'Location')
     ], string='Type of Sale')
