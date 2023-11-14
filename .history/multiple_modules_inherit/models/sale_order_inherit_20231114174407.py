@@ -15,7 +15,7 @@ class SaleOrderInherit(models.Model):
     ], string='Type of Sale')
 
 
-    @api.onchange('tax_totals')
-    def _amount_untaxed(self):
-        _logger.info("ggggggggggggg**************KKKKKKKKKKKKKKKKKKKKK))))))))))))))))))))))")
+    @api.onchange('product_template_id')
+    def _product_template_id(self):
+        _logger.info("H*********************HHHHHHHHH******************************************")
         _logger.info(self)

@@ -1,6 +1,4 @@
-from odoo import models, fields,api
-import logging
-_logger = logging.getLogger(__name__)
+from odoo import models, fields
 
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
@@ -13,9 +11,3 @@ class SaleOrderInherit(models.Model):
         ('vente_normal', 'Vente Normale'),
         ('location', 'Location')
     ], string='Type of Sale')
-
-
-    @api.onchange('tax_totals')
-    def _amount_untaxed(self):
-        _logger.info("ggggggggggggg**************KKKKKKKKKKKKKKKKKKKKK))))))))))))))))))))))")
-        _logger.info(self)
