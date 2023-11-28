@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_account_form_inherit" model="ir.ui.view">
+        <field name="name">account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/control" position="after">
+                <field name="row_counter_column" class="counter_column" />
+            </xpath>
+
+        </field>
+    </record>
+
+            <!-- Inherit the form view of account.move where you want to add the button -->
+        <record id="view_account_move_form_inherit" model="ir.ui.view">
+            <field name="name">account.move.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/> <!-- Reference to the original view -->
+            <field name="arch" type="xml">
+                <!-- Locate the position where you want to add the button -->
+                <!-- This might be a specific field (like 'amount_total') or the end of a group -->
+                <xpath expr="//field[@name='tax_totals']" position="after"> <!-- adjust the field name as needed -->
+                    <!-- Add the button with an action -->
+                    <button string="Fix Amount" type="object" name="button_fix_amount" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+
+</odoo>

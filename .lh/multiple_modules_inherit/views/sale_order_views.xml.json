@@ -1,0 +1,30 @@
+{
+    "sourceFile": "multiple_modules_inherit/views/sale_order_views.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1697447000561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1697447021076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n             <xpath expr=\"//form\" position=\"attributes\">\n                <attribute name=\"class\">sale_order_inherit_table</attribute>\n             </xpath>\n \n-            <xpath expr=\"//tree/control\" position=\"after\">\n+            <!-- <xpath expr=\"//tree/control\" position=\"after\">\n                 <!-- <field name=\"row_counter_column\" class=\"counter_column\" invisible=\"1\"/> -->\n-            </xpath>\n+            </xpath> -->\n \n         </field>\n     </record>\n </odoo>\n"
+                },
+                {
+                    "date": 1697447065230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n             <xpath expr=\"//form\" position=\"attributes\">\n                <attribute name=\"class\">sale_order_inherit_table</attribute>\n             </xpath>\n \n-            <!-- <xpath expr=\"//tree/control\" position=\"after\">\n+            <xpath expr=\"//tree/control\" position=\"after\">\n                 <!-- <field name=\"row_counter_column\" class=\"counter_column\" invisible=\"1\"/> -->\n-            </xpath> -->\n+            </xpath>\n \n         </field>\n     </record>\n </odoo>\n"
+                },
+                {
+                    "date": 1697447072302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,12 +7,12 @@\n         <field name=\"arch\" type=\"xml\">\n             <xpath expr=\"//form\" position=\"attributes\">\n                <attribute name=\"class\">sale_order_inherit_table</attribute>\n             </xpath>\n-\n+<!-- \n             <xpath expr=\"//tree/control\" position=\"after\">\n-                <!-- <field name=\"row_counter_column\" class=\"counter_column\" invisible=\"1\"/> -->\n-            </xpath>\n+                <field name=\"row_counter_column\" class=\"counter_column\" invisible=\"1\"/>\n+            </xpath> -->\n \n         </field>\n     </record>\n </odoo>\n"
+                }
+            ],
+            "date": 1697447000561,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<odoo>\n    <record id=\"view_order_form_inherit\" model=\"ir.ui.view\">\n        <field name=\"name\">sale.order.form.inherit</field>\n        <field name=\"model\">sale.order</field>\n        <field name=\"inherit_id\" ref=\"sale.view_order_form\"/>\n        <field name=\"arch\" type=\"xml\">\n            <xpath expr=\"//form\" position=\"attributes\">\n               <attribute name=\"class\">sale_order_inherit_table</attribute>\n            </xpath>\n\n            <xpath expr=\"//tree/control\" position=\"after\">\n                <!-- <field name=\"row_counter_column\" class=\"counter_column\" invisible=\"1\"/> -->\n            </xpath>\n\n        </field>\n    </record>\n</odoo>\n"
+        }
+    ]
+}

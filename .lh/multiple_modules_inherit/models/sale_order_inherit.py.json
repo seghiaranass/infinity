@@ -1,0 +1,46 @@
+{
+    "sourceFile": "multiple_modules_inherit/models/sale_order_inherit.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1700821284459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1700821310838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,10 @@\n     ], string='Type of Sale')\n \n     custom_state_selection = fields.Selection(\n     [\n-        ('draft', 'Quotation'),\n-        ('sent', 'Quotation Sent'),\n+        ('draft', 'Devis'),\n+        ('sent', 'Sent'),\n         # Add other states as required\n         ('done', 'Done'),\n     ],\n     string='Custom State'\n"
+                },
+                {
+                    "date": 1700821366800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,12 @@\n     custom_state_selection = fields.Selection(\n     [\n         ('draft', 'Devis'),\n         ('sent', 'Sent'),\n+        ('sale', 'Bon de commande'),\n         # Add other states as required\n         ('done', 'Done'),\n+        ('cancel', 'Cancel'),\n     ],\n     string='Custom State'\n )\n \n"
+                },
+                {
+                    "date": 1700821414415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,5 +28,11 @@\n \n     @api.onchange('tax_totals')\n     def _amount_untaxed(self):\n         _logger.info(\"ggggggggggggg**************KKKKKKKKKKKKKKKKKKKKK))))))))))))))))))))))\")\n-        _logger.info(self)\n\\ No newline at end of file\n+        _logger.info(self)\n+\n+\n+    def update_state(self):\n+        self.ensure_one()\n+        # Additional validation or business logic can be added here\n+        self.state = self.custom_state_selection\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1700822251529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,5 +34,11 @@\n \n     def update_state(self):\n         self.ensure_one()\n         # Additional validation or business logic can be added here\n-        self.state = self.custom_state_selection\n\\ No newline at end of file\n+        self.state = self.custom_state_selection\n+\n+\n+    def write(self, values):\n+        if 'custom_state_selection' in values:\n+            values['state'] = values['custom_state_selection']\n+        result = super().write(values)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1700822264017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,5 +40,7 @@\n \n     def write(self, values):\n         if 'custom_state_selection' in values:\n             values['state'] = values['custom_state_selection']\n-        result = super().write(values)\n\\ No newline at end of file\n+\n+        result = super().write(values)\n+        return result\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1700822663782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,5 +42,15 @@\n         if 'custom_state_selection' in values:\n             values['state'] = values['custom_state_selection']\n \n         result = super().write(values)\n-        return result\n\\ No newline at end of file\n+        return result\n+    \n+    @api.onchange('custom_state_selection')\n+    def onchange_custom_state_selection(self):\n+        if self.custom_state_selection and self.custom_state_selection != self.state:\n+            return {\n+                'warning': {\n+                    'title': \"Are you sure?\",\n+                    'message': \"Are you sure you want to change the state? If something happens, it's your responsibility!\",\n+                }\n+            }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1700822726631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,7 +50,7 @@\n         if self.custom_state_selection and self.custom_state_selection != self.state:\n             return {\n                 'warning': {\n                     'title': \"Are you sure?\",\n-                    'message': \"Are you sure you want to change the state? If something happens, it's your responsibility!\",\n+                    'message': \"Are you sure you want to change the state? If something happens, it's your responsibility! ^_^\",\n                 }\n             }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1700821284459,
+            "name": "Commit-0",
+            "content": "from odoo import models, fields,api\nimport logging\n_logger = logging.getLogger(__name__)\n\nclass SaleOrderInherit(models.Model):\n    _inherit = 'sale.order'\n\n    etude_document = fields.Binary(string='Etude Document')\n    etude_filename = fields.Char(string='File Name')\n\n    type_of_sale = fields.Selection([\n        ('installation', 'Installation'),\n        ('vente_normal', 'Vente Normale'),\n        ('location', 'Location')\n    ], string='Type of Sale')\n\n    custom_state_selection = fields.Selection(\n    [\n        ('draft', 'Quotation'),\n        ('sent', 'Quotation Sent'),\n        # Add other states as required\n        ('done', 'Done'),\n    ],\n    string='Custom State'\n)\n\n    @api.onchange('tax_totals')\n    def _amount_untaxed(self):\n        _logger.info(\"ggggggggggggg**************KKKKKKKKKKKKKKKKKKKKK))))))))))))))))))))))\")\n        _logger.info(self)"
+        }
+    ]
+}

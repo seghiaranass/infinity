@@ -30,27 +30,3 @@ class SaleOrderInherit(models.Model):
     def _amount_untaxed(self):
         _logger.info("ggggggggggggg**************KKKKKKKKKKKKKKKKKKKKK))))))))))))))))))))))")
         _logger.info(self)
-
-
-    def update_state(self):
-        self.ensure_one()
-        # Additional validation or business logic can be added here
-        self.state = self.custom_state_selection
-
-
-    def write(self, values):
-        if 'custom_state_selection' in values:
-            values['state'] = values['custom_state_selection']
-
-        result = super().write(values)
-        return result
-    
-    @api.onchange('custom_state_selection')
-    def onchange_custom_state_selection(self):
-        if self.custom_state_selection and self.custom_state_selection != self.state:
-            return {
-                'warning': {
-                    'title': "Are you sure?",
-                    'message': "Are you sure you want to change the state? If something happens, it's your responsibility! ^_^",
-                }
-            }

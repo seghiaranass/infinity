@@ -1,0 +1,30 @@
+{
+    "sourceFile": "multiple_modules_inherit/views/sale.view_order_form.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1700820867223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1700820988734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n             <field name=\"arch\" type=\"xml\">\n                 <xpath expr=\"//field[@name='name']\" position=\"before\">\n                     <!-- Add your new field here -->\n                     <field name=\"type_of_sale\"/>\n-                    <field name=\"state\"/>\n+                    <field name=\"state\" string=\"State\"/>\n                 </xpath>\n             </field>\n         </record>\n \n"
+                },
+                {
+                    "date": 1700821152206,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n             <field name=\"arch\" type=\"xml\">\n                 <xpath expr=\"//field[@name='name']\" position=\"before\">\n                     <!-- Add your new field here -->\n                     <field name=\"type_of_sale\"/>\n-                    <field name=\"state\" string=\"State\"/>\n+                    \n                 </xpath>\n             </field>\n         </record>\n \n"
+                },
+                {
+                    "date": 1700821440905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n                 \n                  <!-- Add type of sale in form  view -->\n                 <xpath expr=\"//group[@name='partner_details']\" position=\"inside\">\n                     <field name=\"type_of_sale\"/>\n+                    <field name=\"custom_state_selection\"/>\n                 </xpath>\n \n \n             </field>\n"
+                }
+            ],
+            "date": 1700820867223,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<odoo>\n    <data>\n        <!--add file upload  -->\n        <record id=\"view_order_form_inherit\" model=\"ir.ui.view\">\n            <field name=\"name\">sale.order.form.inherit</field>\n            <field name=\"model\">sale.order</field>\n            <field name=\"inherit_id\" ref=\"sale.view_order_form\"/>\n            <field name=\"arch\" type=\"xml\">\n                <xpath expr=\"//page[@name='other_information']\" position=\"after\">\n                    <!-- Add your new tab/page here -->\n                    <page string=\"Etude\">\n                        <field name=\"etude_filename\" invisible=\"1\"/>\n                        <group>\n                            <field name=\"etude_document\" widget=\"binary\" filename=\"etude_filename\"/>\n                        </group>\n                    </page>\n                </xpath>\n                \n                 <!-- Add type of sale in form  view -->\n                <xpath expr=\"//group[@name='partner_details']\" position=\"inside\">\n                    <field name=\"type_of_sale\"/>\n                </xpath>\n\n\n            </field>\n        </record>\n\n\n        <!-- Add type of sale in list view -->\n        <record id=\"view_quotation_tree_with_onboarding_inherit\" model=\"ir.ui.view\">\n            <field name=\"name\">sale.quotation.tree.with.onboarding.inherit</field>\n            <field name=\"model\">sale.order</field>\n            <field name=\"inherit_id\" ref=\"sale.view_quotation_tree_with_onboarding\"/>\n            <field name=\"arch\" type=\"xml\">\n                <xpath expr=\"//field[@name='name']\" position=\"before\">\n                    <!-- Add your new field here -->\n                    <field name=\"type_of_sale\"/>\n                    <field name=\"state\"/>\n                </xpath>\n            </field>\n        </record>\n\n    </data>\n</odoo>\n"
+        }
+    ]
+}

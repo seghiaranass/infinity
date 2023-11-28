@@ -1,0 +1,18 @@
+{
+    "sourceFile": "multiple_modules_inherit/models/__init__.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1701100233679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1701100233679,
+            "name": "Commit-0",
+            "content": "from . import sale_order_line_inherit\nfrom . import account_move_line_inherit\nfrom . import sale_order_inherit\nfrom . import account_move_inherit"
+        }
+    ]
+}

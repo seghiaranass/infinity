@@ -20,7 +20,6 @@
                  <!-- Add type of sale in form  view -->
                 <xpath expr="//group[@name='partner_details']" position="inside">
                     <field name="type_of_sale"/>
-                    <field name="custom_state_selection"/>
                 </xpath>
 
 
@@ -37,7 +36,7 @@
                 <xpath expr="//field[@name='name']" position="before">
                     <!-- Add your new field here -->
                     <field name="type_of_sale"/>
-                    
+                    <field name="state" string="State"/>
                 </xpath>
             </field>
         </record>

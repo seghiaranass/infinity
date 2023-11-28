@@ -1,0 +1,86 @@
+{
+    "sourceFile": "multiple_modules_inherit/models/account_move_inherit.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1701100600540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1701100836617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,5 +10,11 @@\n         _logger.info(self.amount_tax)\n         _logger.info(values)\n         _logger.info(\"end !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n         result = super().write(values)\n-        return result\n\\ No newline at end of file\n+        return result\n+\n+    def button_fix_amount(self):\n+    # Your custom logic here\n+    # For example, you might want to fix the amount by creating a write-off\n+    # or adjusting the invoice in some way\n+    pass\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701103345931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,10 @@\n         result = super().write(values)\n         return result\n \n     def button_fix_amount(self):\n+        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n+        _logger.info(self.amount_tax)   \n     # Your custom logic here\n     # For example, you might want to fix the amount by creating a write-off\n\\ No newline at end of file\n     # or adjusting the invoice in some way\n-    pass\n+        pass\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701103360701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n \n     def button_fix_amount(self):\n         _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n         _logger.info(self.amount_tax)   \n+        _logger.info(self.self.amount_untaxed)   \n     # Your custom logic here\n     # For example, you might want to fix the amount by creating a write-off\n     # or adjusting the invoice in some way\n         pass\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701103509314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,11 +13,10 @@\n         result = super().write(values)\n         return result\n \n     def button_fix_amount(self):\n-        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n         _logger.info(self.amount_tax)   \n-        _logger.info(self.self.amount_untaxed)   \n+        _logger.info(self.amount_untaxed)   \n     # Your custom logic here\n     # For example, you might want to fix the amount by creating a write-off\n     # or adjusting the invoice in some way\n         pass\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701103641912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,14 @@\n         result = super().write(values)\n         return result\n \n     def button_fix_amount(self):\n+        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n+\n         _logger.info(self.amount_tax)   \n-        _logger.info(self.amount_untaxed)   \n+        _logger.info(self.amount_untaxed)  \n+        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n+\n     # Your custom logic here\n     # For example, you might want to fix the amount by creating a write-off\n     # or adjusting the invoice in some way\n         pass\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701104423042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n _logger = logging.getLogger(__name__)\n class AccountMoveInherit(models.Model):\n     _inherit = \"account.move\"\n \n+    # old_tax_value \n \n     def write(self, values):\n         _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n         _logger.info(self.amount_tax)\n"
+                },
+                {
+                    "date": 1701159082848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n class AccountMoveInherit(models.Model):\n     _inherit = \"account.move\"\n \n     # old_tax_value \n+    old_amount_tax = fields.Float(string='Old Tax Amount', readonly=True, help=\"Stores the old tax amount before it was last updated.\")\n \n     def write(self, values):\n         _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n         _logger.info(self.amount_tax)\n"
+                },
+                {
+                    "date": 1701159228039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,7 @@\n         _logger.info(self.amount_tax)   \n         _logger.info(self.amount_untaxed)  \n         _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n \n-    # Your custom logic here\n-    # For example, you might want to fix the amount by creating a write-off\n-    # or adjusting the invoice in some way\n-        pass\n\\ No newline at end of file\n+\n+        self.old_amount_tax = self.amount_tax\n+        self.write({'amount_tax': round(self.amount_untaxed * 0.20)})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701159317346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,13 +15,10 @@\n         result = super().write(values)\n         return result\n \n     def button_fix_amount(self):\n-        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n \n-        _logger.info(self.amount_tax)   \n-        _logger.info(self.amount_untaxed)  \n-        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n+        # _logger.info(self.amount_tax)   \n+        # _logger.info(self.amount_untaxed)  \n \n-\n         self.old_amount_tax = self.amount_tax\n         self.write({'amount_tax': round(self.amount_untaxed * 0.20)})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701159496374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,11 @@\n         return result\n \n     def button_fix_amount(self):\n \n-        # _logger.info(self.amount_tax)   \n+        #    \n         # _logger.info(self.amount_untaxed)  \n \n         self.old_amount_tax = self.amount_tax\n\\ No newline at end of file\n-        self.write({'amount_tax': round(self.amount_untaxed * 0.20)})\n+        self.write({'amount_tax': round(self.amount_untaxed * 0.20)})\n+        _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n+        _logger.info()\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701159502673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,5 @@\n \n         self.old_amount_tax = self.amount_tax\n         self.write({'amount_tax': round(self.amount_untaxed * 0.20)})\n         _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n-        _logger.info()\n\\ No newline at end of file\n+        _logger.info(round(self.amount_untaxed * 0.20))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701159519746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,7 +20,7 @@\n         #    \n         # _logger.info(self.amount_untaxed)  \n \n         self.old_amount_tax = self.amount_tax\n-        self.write({'amount_tax': round(self.amount_untaxed * 0.20)})\n+        self.write({'amount_tax': round(self.amount_untaxed * 0.20,2)})\n         _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n         _logger.info(round(self.amount_untaxed * 0.20))\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701159828211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n from odoo import fields, models, api\n import logging\n+from decimal import Decimal, ROUND_HALF_EVEN\n+\n _logger = logging.getLogger(__name__)\n class AccountMoveInherit(models.Model):\n     _inherit = \"account.move\"\n \n"
+                },
+                {
+                    "date": 1701159892852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n     def button_fix_amount(self):\n \n         #    \n         # _logger.info(self.amount_untaxed)  \n+        untaxed_amount = Decimal(str(self.amount_untaxed))\n+        self.old_amount_tax = self.amount_tax\n+        new_tax_amount = (untaxed_amount * Decimal('0.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\n \n-        self.old_amount_tax = self.amount_tax\n\\ No newline at end of file\n-        self.write({'amount_tax': round(self.amount_untaxed * 0.20,2)})\n+           self.write({'amount_tax': new_tax_amount})\n         _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n-        _logger.info(round(self.amount_untaxed * 0.20))\n+        _logger.info(new_tax_amount)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701160129236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,7 +24,8 @@\n         untaxed_amount = Decimal(str(self.amount_untaxed))\n         self.old_amount_tax = self.amount_tax\n         new_tax_amount = (untaxed_amount * Decimal('0.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\n \n-           self.write({'amount_tax': new_tax_amount})\n+        self.write({'amount_tax': new_tax_amount})\n         _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n\\ No newline at end of file\n-        _logger.info(new_tax_amount)\n+        _logger.info(new_tax_amount)\n+        return True\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701160263017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n         untaxed_amount = Decimal(str(self.amount_untaxed))\n         self.old_amount_tax = self.amount_tax\n         new_tax_amount = (untaxed_amount * Decimal('0.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\n \n-        self.write({'amount_tax': new_tax_amount})\n         _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n         _logger.info(new_tax_amount)\n-        return True\n\\ No newline at end of file\n+        \n+        return self.write({'amount_tax': new_tax_amount})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701161417392,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         result = super().write(values)\n         return result\n \n     def button_fix_amount(self):\n-\n+        pass\n         #    \n         # _logger.info(self.amount_untaxed)  \n         untaxed_amount = Decimal(str(self.amount_untaxed))\n         self.old_amount_tax = self.amount_tax\n"
+                }
+            ],
+            "date": 1701100600540,
+            "name": "Commit-0",
+            "content": "from odoo import fields, models, api\nimport logging\n_logger = logging.getLogger(__name__)\nclass AccountMoveInherit(models.Model):\n    _inherit = \"account.move\"\n\n\n    def write(self, values):\n        _logger.info(\"start !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n        _logger.info(self.amount_tax)\n        _logger.info(values)\n        _logger.info(\"end !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n        result = super().write(values)\n        return result"
+        }
+    ]
+}

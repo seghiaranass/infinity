@@ -8,7 +8,13 @@
             <xpath expr="//tree/control" position="after">
                 <field name="row_counter_column" class="counter_column" />
             </xpath>
-
+             <xpath expr="//field[@name='tax_totals']" position="after"> <!-- adjust the field name as needed -->
+                    <!-- Add the button with an action -->
+                    <button string="Fix Amount" type="object" name="button_fix_amount" class="oe_highlight"/>
+                </xpath>
         </field>
     </record>
+
+    
+
 </odoo>
