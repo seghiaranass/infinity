@@ -7,6 +7,11 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <!-- Locate the tree view of sale.order.line using XPath -->
+                <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                    <!-- Apply conditional formatting based on the custom_field value -->
+                    <attribute name="decoration-bf-success">custom_field == 'available'</attribute>
+                    <attribute name="decoration-danger">custom_field == 'not_available'</attribute>
+                </xpath>
                 <xpath expr="//field[@name='order_line']/tree/field[last()]" position="after">
                     <!-- Add a new column for the custom selection field -->
                     <field name="custom_field"/>
