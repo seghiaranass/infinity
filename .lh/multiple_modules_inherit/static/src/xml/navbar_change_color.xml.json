@@ -1,0 +1,246 @@
+{
+    "sourceFile": "multiple_modules_inherit/static/src/xml/navbar_change_color.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 57,
+            "patches": [
+                {
+                    "date": 1702046078028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702046094360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+<?xml version=\"1.0\" encoding=\"utf-8\"?>\n+\n <template id='my_navbar_web_layout' inherit_id='web.layout'>\n     <data inherit_id=\"web.layout\">\n         <xpath expr=\"//body\" position=\"inside\">\n             <t>\n"
+                },
+                {
+                    "date": 1702046223439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,12 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n \n <template id='my_navbar_web_layout' inherit_id='web.layout'>\n-    <data inherit_id=\"web.layout\">\n+    <t inherit_id=\"web.layout\"\n+        t-inherit-mode=\"extension\"\n+    owl=\"1\"\n+    \n+    >\n         <xpath expr=\"//body\" position=\"inside\">\n             <t>\n                 <div>Fuck You </div>\n             </t>\n@@ -11,6 +15,6 @@\n                 <style>.o_main_navbar {background-color:<t t-esc='color'/>\n !important;border-bottom: 0px;}</style>\n             </t>\n         </xpath>\n-    </data>\n+    </t>\n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702046235696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,11 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n \n-<template id='my_navbar_web_layout' inherit_id='web.layout'>\n+<template id='my_navbar_web_layout' inherit_id='web.layout'\n+    t-inherit-mode=\"extension\"\n+    owl=\"1\"\n+\n+>\n     <t inherit_id=\"web.layout\"\n         t-inherit-mode=\"extension\"\n     owl=\"1\"\n     \n"
+                },
+                {
+                    "date": 1702046376304,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,10 @@\n-<?xml version=\"1.0\" encoding=\"utf-8\"?>\n-\n-<template id='my_navbar_web_layout' inherit_id='web.layout'\n-    t-inherit-mode=\"extension\"\n-    owl=\"1\"\n-\n->\n-    <t inherit_id=\"web.layout\"\n-        t-inherit-mode=\"extension\"\n-    owl=\"1\"\n-    \n-    >\n-        <xpath expr=\"//body\" position=\"inside\">\n-            <t>\n-                <div>Fuck You </div>\n-            </t>\n-            <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n-            <t t-if='color'>\n-                <style>.o_main_navbar {background-color:<t t-esc='color'/>\n-!important;border-bottom: 0px;}</style>\n-            </t>\n-        </xpath>\n-    </t>\n-</template>\n\\ No newline at end of file\n+<data inherit_id=\"web.layout\">\n+  <xpath expr=\"//body\" position=\"inside\">\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n+                                         background-color: #57596F!important;border-bottom: 0px;}</style></t> \n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n+                                         background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n+   </xpath>\n+</data>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702046445637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,19 @@\n-<data inherit_id=\"web.layout\">\n-  <xpath expr=\"//body\" position=\"inside\">\n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n-                                         background-color: #57596F!important;border-bottom: 0px;}</style></t> \n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n-                                         background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n-   </xpath>\n-</data>\n\\ No newline at end of file\n+<?xml version=\"1.0\" encoding=\"utf-8\"?>\n+<template>\n+    <t\n+    t-name=\"rowno_in_tree.PurchaseListRenderer\"\n+    t-inherit=\"purchase.PurchaseListView\"\n+    t-inherit-mode=\"extension\"\n+    owl=\"1\"\n+>\n+<xpath expr=\"//table/thead/tr/th[@t-if='hasSelectors']\" position=\"before\">\n+    <th style=\"width:100px; max-width:100px\" class=\"row_no\">#</th>\n+</xpath>\n+<xpath expr=\"//div/table/tfoot/tr/td\" position=\"before\">\n+    <td/>\n+</xpath>\n+</t>\n+\n+    \n+ \n+</template>\n"
+                },
+                {
+                    "date": 1702046497868,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n     <t\n-    t-name=\"rowno_in_tree.PurchaseListRenderer\"\n-    t-inherit=\"purchase.PurchaseListView\"\n+    t-name=\"change_navbarColor\"\n+    t-inherit=\"web.layout\"\n     t-inherit-mode=\"extension\"\n     owl=\"1\"\n >\n <xpath expr=\"//table/thead/tr/th[@t-if='hasSelectors']\" position=\"before\">\n"
+                },
+                {
+                    "date": 1702046514374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,11 @@\n <template>\n     <t\n     t-name=\"change_navbarColor\"\n     t-inherit=\"web.layout\"\n-    t-inherit-mode=\"extension\"\n     owl=\"1\"\n >\n-<xpath expr=\"//table/thead/tr/th[@t-if='hasSelectors']\" position=\"before\">\n+<xpath expr=\"//body\" position=\"inside\">\n     <th style=\"width:100px; max-width:100px\" class=\"row_no\">#</th>\n </xpath>\n <xpath expr=\"//div/table/tfoot/tr/td\" position=\"before\">\n     <td/>\n"
+                },
+                {
+                    "date": 1702046542832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n     t-inherit=\"web.layout\"\n     owl=\"1\"\n >\n <xpath expr=\"//body\" position=\"inside\">\n-    <th style=\"width:100px; max-width:100px\" class=\"row_no\">#</th>\n+    <div style=\"width:100px; max-width:100px\" class=\"row_no\">#</div>\n </xpath>\n-<xpath expr=\"//div/table/tfoot/tr/td\" position=\"before\">\n-    <td/>\n+<xpath expr=\"//body\" position=\"inside\">\n+    <hr/>\n </xpath>\n </t>\n \n     \n"
+                },
+                {
+                    "date": 1702046563753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<?xml version=\"1.0\" encoding=\"utf-8\"?>\n+<!-- <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n     <t\n     t-name=\"change_navbarColor\"\n     t-inherit=\"web.layout\"\n@@ -14,5 +14,5 @@\n </t>\n \n     \n  \n-</template>\n+</template> -->\n"
+                },
+                {
+                    "date": 1702046575713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<!-- <?xml version=\"1.0\" encoding=\"utf-8\"?>\n+<?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n     <t\n     t-name=\"change_navbarColor\"\n     t-inherit=\"web.layout\"\n@@ -14,5 +14,5 @@\n </t>\n \n     \n  \n-</template> -->\n+</template>\n"
+                },
+                {
+                    "date": 1702046671146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n     <t\n     t-name=\"change_navbarColor\"\n-    t-inherit=\"web.layout\"\n+    t-inherit=\"web.NavBar\"\n     owl=\"1\"\n >\n <xpath expr=\"//body\" position=\"inside\">\n     <div style=\"width:100px; max-width:100px\" class=\"row_no\">#</div>\n"
+                },
+                {
+                    "date": 1702046682764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     t-name=\"change_navbarColor\"\n     t-inherit=\"web.NavBar\"\n     owl=\"1\"\n >\n-<xpath expr=\"//body\" position=\"inside\">\n+<xpath expr=\"//div\" position=\"inside\">\n     <div style=\"width:100px; max-width:100px\" class=\"row_no\">#</div>\n </xpath>\n <xpath expr=\"//body\" position=\"inside\">\n     <hr/>\n"
+                },
+                {
+                    "date": 1702046815828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,12 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template>\n-    <t\n-    t-name=\"change_navbarColor\"\n-    t-inherit=\"web.NavBar\"\n-    owl=\"1\"\n->\n-<xpath expr=\"//div\" position=\"inside\">\n-    <div style=\"width:100px; max-width:100px\" class=\"row_no\">#</div>\n-</xpath>\n-<xpath expr=\"//body\" position=\"inside\">\n-    <hr/>\n-</xpath>\n-</t>\n-\n-    \n- \n+<template id='my_navbar_web_layout' inherit_id='web.layout'>\n+    <data inherit_id=\"web.Navbar\">\n+        <xpath expr=\"//header\" position=\"inside\">\n+            <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n+            <t t-if='color'>\n+                <style>.o_main_navbar {background-color:<t t-esc='color'/>\n+!important;border-bottom: 0px;}</style>\n+            </t>\n+        </xpath>\n+    </data>\n </template>\n"
+                },
+                {
+                    "date": 1702046849057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template id='my_navbar_web_layout' inherit_id='web.layout'>\n+<template id='my_navbar_web_layout' inherit_id='web.Navbar'>\n     <data inherit_id=\"web.Navbar\">\n         <xpath expr=\"//header\" position=\"inside\">\n             <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n             <t t-if='color'>\n"
+                },
+                {
+                    "date": 1702046865210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,9 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template id='my_navbar_web_layout' inherit_id='web.Navbar'>\n     <data inherit_id=\"web.Navbar\">\n         <xpath expr=\"//header\" position=\"inside\">\n-            <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n-            <t t-if='color'>\n+            \n                 <style>.o_main_navbar {background-color:<t t-esc='color'/>\n !important;border-bottom: 0px;}</style>\n             </t>\n         </xpath>\n"
+                },
+                {
+                    "date": 1702046935476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,7 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template id='my_navbar_web_layout' inherit_id='web.Navbar'>\n-    <data inherit_id=\"web.Navbar\">\n-        <xpath expr=\"//header\" position=\"inside\">\n-            \n-                <style>.o_main_navbar {background-color:<t t-esc='color'/>\n-!important;border-bottom: 0px;}</style>\n-            </t>\n-        </xpath>\n-    </data>\n+<template>\n+  \n+    \n+\n+\n </template>\n"
+                },
+                {
+                    "date": 1702046949781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,12 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n   \n-    \n+     <t\n+    t-name=\"rowno_in_tree.PurchaseListRenderer\"\n+    t-inherit=\"purchase.PurchaseListView\"\n+    t-inherit-mode=\"extension\"\n+    owl=\"1\">\n+    </t>\n \n \n </template>\n"
+                },
+                {
+                    "date": 1702046965583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n   \n      <t\n-    t-name=\"rowno_in_tree.PurchaseListRenderer\"\n-    t-inherit=\"purchase.PurchaseListView\"\n+    t-name=\"navBar2\"\n+    t-inherit=\"web.Navbar\"\n     t-inherit-mode=\"extension\"\n     owl=\"1\">\n     </t>\n \n"
+                },
+                {
+                    "date": 1702046976216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n     t-name=\"navBar2\"\n     t-inherit=\"web.Navbar\"\n     t-inherit-mode=\"extension\"\n     owl=\"1\">\n+    <t>\n+\n     </t>\n \n \n </template>\n"
+                },
+                {
+                    "date": 1702047005997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,14 @@\n     t-inherit-mode=\"extension\"\n     owl=\"1\">\n     <t>\n \n+        <xpath expr=\"//header\" position=\"inside\">\n+          <h1>Hello</h1>\n+        </xpath>\n+\n+\n+\n     </t>\n \n \n </template>\n"
+                },
+                {
+                    "date": 1702047063973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n <template>\n   \n      <t\n     t-name=\"navBar2\"\n-    t-inherit=\"web.Navbar\"\n+    t-inherit=\"web.NavBar\"\n     t-inherit-mode=\"extension\"\n     owl=\"1\">\n     <t>\n \n"
+                },
+                {
+                    "date": 1702047119750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     t-inherit-mode=\"extension\"\n     owl=\"1\">\n     <t>\n \n-        <xpath expr=\"//header\" position=\"inside\">\n+        <xpath expr=\"//header\" position=\"before\">\n           <h1>Hello</h1>\n         </xpath>\n \n \n"
+                },
+                {
+                    "date": 1702047159512,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,11 @@\n     owl=\"1\">\n     <t>\n \n         <xpath expr=\"//header\" position=\"before\">\n-          <h1>Hello</h1>\n+            <t>\n+             <h1>Hello</h1>\n+            </t>\n         </xpath>\n \n \n \n"
+                },
+                {
+                    "date": 1702047202772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,10 @@\n-<?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template>\n-  \n-     <t\n-    t-name=\"navBar2\"\n-    t-inherit=\"web.NavBar\"\n-    t-inherit-mode=\"extension\"\n-    owl=\"1\">\n-    <t>\n-\n-        <xpath expr=\"//header\" position=\"before\">\n-            <t>\n-             <h1>Hello</h1>\n-            </t>\n-        </xpath>\n-\n-\n-\n-    </t>\n-\n-\n-</template>\n+<data inherit_id=\"web.NavBar\">\n+  <xpath expr=\"//body\" position=\"inside\">\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n+                                         background-color: #57596F!important;border-bottom: 0px;}</style></t> \n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n+                                         background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n+   </xpath>\n+</data>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702047212816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <data inherit_id=\"web.NavBar\">\n-  <xpath expr=\"//body\" position=\"inside\">\n+  <xpath expr=\"//header\" position=\"inside\">\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n       <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n"
+                },
+                {
+                    "date": 1702047347283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <data inherit_id=\"web.NavBar\">\n   <xpath expr=\"//header\" position=\"inside\">\n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n+    <t >\n       <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n+    <t >\n       <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n                                          background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n    </xpath>\n </data>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702047378214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n-<data inherit_id=\"web.NavBar\">\n-  <xpath expr=\"//header\" position=\"inside\">\n-    <t >\n+<template inherit_id=\"web.NavBar\">\n+  <xpath expr=\"//body\" position=\"inside\">\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n       <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n-    <t >\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n\\ No newline at end of file\n       <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n                                          background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n    </xpath>\n-</data>\n+</template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702047438079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-<template inherit_id=\"web.NavBar\">\n+<template t-name=\"fuckyou\" inherit_id=\"web.NavBar\">\n   <xpath expr=\"//body\" position=\"inside\">\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n       <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n"
+                },
+                {
+                    "date": 1702049473931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,11 @@\n-<template t-name=\"fuckyou\" inherit_id=\"web.NavBar\">\n-  <xpath expr=\"//body\" position=\"inside\">\n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n-                                         background-color: #57596F!important;border-bottom: 0px;}</style></t> \n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n-                                         background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n-   </xpath>\n+<template id='my_navbar_web_layout' inherit_id='web.Layout'>\n+    <data inherit_id=\"web.layout\">\n+        <xpath expr=\"//body\" position=\"inside\">\n+            <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n+            <t t-if='color'>\n+                <style>.o_main_navbar {background-color:<t t-esc='color'/>\n+!important;border-bottom: 0px;}</style>\n+            </t>\n+        </xpath>\n+    </data>\n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702049490026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,7 @@\n <template id='my_navbar_web_layout' inherit_id='web.Layout'>\n     <data inherit_id=\"web.layout\">\n         <xpath expr=\"//body\" position=\"inside\">\n-            <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n-            <t t-if='color'>\n-                <style>.o_main_navbar {background-color:<t t-esc='color'/>\n-!important;border-bottom: 0px;}</style>\n-            </t>\n+           \n         </xpath>\n     </data>\n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702049621350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,10 @@\n+<odoo>\n <template id='my_navbar_web_layout' inherit_id='web.Layout'>\n     <data inherit_id=\"web.layout\">\n         <xpath expr=\"//body\" position=\"inside\">\n            \n         </xpath>\n     </data>\n\\ No newline at end of file\n-</template>\n+</template>\n+\n+</odoo>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702049632906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <odoo>\n <template id='my_navbar_web_layout' inherit_id='web.Layout'>\n-    <data inherit_id=\"web.layout\">\n+    <t inherit_id=\"web.layout\">\n         <xpath expr=\"//body\" position=\"inside\">\n            \n         </xpath>\n-    </data>\n+    </t>\n </template>\n \n </odoo>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702049697711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n+<?xml version=\"1.0\" encoding=\"utf-8\"?>\n <odoo>\n <template id='my_navbar_web_layout' inherit_id='web.Layout'>\n     <t inherit_id=\"web.layout\">\n         <xpath expr=\"//body\" position=\"inside\">\n"
+                },
+                {
+                    "date": 1702049708168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <odoo>\n-<template id='my_navbar_web_layout' inherit_id='web.Layout'>\n+<template id='my_navbar_web_layout' inherit_id='web.layout'>\n     <t inherit_id=\"web.layout\">\n         <xpath expr=\"//body\" position=\"inside\">\n            \n         </xpath>\n"
+                },
+                {
+                    "date": 1702049781549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <odoo>\n-<template id='my_navbar_web_layout' inherit_id='web.layout'>\n-    <t inherit_id=\"web.layout\">\n+<template id='my_navbar_web_layout' inherit_id='web.NavBar'>\n+    <t inherit_id=\"web.NavBar\">\n         <xpath expr=\"//body\" position=\"inside\">\n            \n         </xpath>\n     </t>\n"
+                },
+                {
+                    "date": 1702049791988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <odoo>\n-<template id='my_navbar_web_layout' inherit_id='web.NavBar'>\n+<template id='my_navbar_web_layout2' inherit_id='web.NavBar'>\n     <t inherit_id=\"web.NavBar\">\n         <xpath expr=\"//body\" position=\"inside\">\n            \n         </xpath>\n"
+                },
+                {
+                    "date": 1702049949138,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <odoo>\n <template id='my_navbar_web_layout2' inherit_id='web.NavBar'>\n-    <t inherit_id=\"web.NavBar\">\n+    <t >\n         <xpath expr=\"//body\" position=\"inside\">\n            \n         </xpath>\n     </t>\n"
+                },
+                {
+                    "date": 1702049969059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +0,0 @@\n-<?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<odoo>\n-<template id='my_navbar_web_layout2' inherit_id='web.NavBar'>\n-    <t >\n-        <xpath expr=\"//body\" position=\"inside\">\n-           \n-        </xpath>\n-    </t>\n-</template>\n-\n-</odoo>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702049988699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,2 @@\n+<odoo>\n+</odoo>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050067489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,9 @@\n-<odoo>\n-</odoo>\n\\ No newline at end of file\n+<?xml version=\"1.0\" encoding=\"utf-8\"?>\n+<template>\n+    <t\n+    t-name=\"tttt\"\n+    t-inherit=\"web.NavBar\"\n+>\n+\n+\n+</template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050124276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n     <t\n     t-name=\"tttt\"\n-    t-inherit=\"web.NavBar\"\n+    t-inherit=\"web.layout\"\n >\n \n \n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050145407,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template>\n     <t\n     t-name=\"tttt\"\n-    t-inherit=\"web.layout\"\n+    t-inherit=\"web.NavBar\"\n >\n \n \n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050196536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,6 +4,6 @@\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n \n-\n+   <style>*{ display:none !important;}</style>\n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050247014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,7 @@\n     t-inherit=\"web.NavBar\"\n >\n \n    <style>*{ display:none !important;}</style>\n+\n+   </t>\n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050273041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,12 @@\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n-\n+ <xpath expr=\"//body\" position=\"inside\">\n    <style>*{ display:none !important;}</style>\n \n    </t>\n+\n+      </xpath>\n+\n </template>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702050483935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template>\n+<template t-inherit=\"web.NavBar\">\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n- <xpath expr=\"//body\" position=\"inside\">\n+ <xpath expr=\"//nav\" position=\"inside\">\n    <style>*{ display:none !important;}</style>\n \n    </t>\n \n"
+                },
+                {
+                    "date": 1702050537955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n- <xpath expr=\"//nav\" position=\"inside\">\n+ <xpath expr=\"//header[class='o_navbar']\" position=\"inside\">\n    <style>*{ display:none !important;}</style>\n \n    </t>\n \n"
+                },
+                {
+                    "date": 1702050552326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n  <xpath expr=\"//header[class='o_navbar']\" position=\"inside\">\n-   <style>*{ display:none !important;}</style>\n+   <div>Fuck </div>\n \n    </t>\n \n       </xpath>\n"
+                },
+                {
+                    "date": 1702050647448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n- <xpath expr=\"//header[class='o_navbar']\" position=\"inside\">\n+ <xpath expr=\"//header[@class='o_navbar']\" position=\"inside\">\n    <div>Fuck </div>\n \n    </t>\n \n"
+                },
+                {
+                    "date": 1702050704055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n >\n- <xpath expr=\"//header[@class='o_navbar']\" position=\"inside\">\n+ <xpath expr=\"//header[@class='o_navbar']\" position=\"before\">\n    <div>Fuck </div>\n \n    </t>\n \n"
+                },
+                {
+                    "date": 1702050786191,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,13 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template t-inherit=\"web.NavBar\">\n+<template t-inherit=\"web.NavBar\"\n+    t-inherit-mode=\"extension\"\n+    owl=\"1\">\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n+        t-inherit-mode=\"extension\"\n+    owl=\"1\"\n >\n  <xpath expr=\"//header[@class='o_navbar']\" position=\"before\">\n    <div>Fuck </div>\n \n"
+                },
+                {
+                    "date": 1702055557185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n <?xml version=\"1.0\" encoding=\"utf-8\"?>\n <template t-inherit=\"web.NavBar\"\n-    t-inherit-mode=\"extension\"\n+    \n     owl=\"1\">\n     <t\n     t-name=\"tttt\"\n     t-inherit=\"web.NavBar\"\n-        t-inherit-mode=\"extension\"\n+\n     owl=\"1\"\n >\n  <xpath expr=\"//header[@class='o_navbar']\" position=\"before\">\n    <div>Fuck </div>\n"
+                },
+                {
+                    "date": 1702055568803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +1,17 @@\n-<?xml version=\"1.0\" encoding=\"utf-8\"?>\n-<template t-inherit=\"web.NavBar\"\n-    \n-    owl=\"1\">\n-    <t\n-    t-name=\"tttt\"\n-    t-inherit=\"web.NavBar\"\n-\n-    owl=\"1\"\n->\n- <xpath expr=\"//header[@class='o_navbar']\" position=\"before\">\n-   <div>Fuck </div>\n-\n-   </t>\n-\n-      </xpath>\n-\n-</template>\n\\ No newline at end of file\n+<!-- Odoo 16 -->\n+<data inherit_id=\"web.layout\">\n+  <xpath expr=\"//body\" position=\"inside\">\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n+                                         background-color: #57596F!important;border-bottom: 0px;}</style></t> \n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '5'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n+                                         background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '6'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #87AFC4, #87AFC4); \n+                                         background-color: #87AFC4!important;border-bottom: 0px;}</style></t>\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '7'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #77B691, #77B691); \n+                                         background-color: #77B691!important;border-bottom: 0px;}</style></t>\n+   </xpath>\n+</data>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702055631889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <!-- Odoo 16 -->\n-<data inherit_id=\"web.layout\">\n+<data t-name=\"Helloo\" inherit_id=\"web.layout\">\n   <xpath expr=\"//body\" position=\"inside\">\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n       <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n"
+                },
+                {
+                    "date": 1702055703233,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,17 @@\n <!-- Odoo 16 -->\n <data t-name=\"Helloo\" inherit_id=\"web.layout\">\n   <xpath expr=\"//body\" position=\"inside\">\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #57596F, #57596F); \n+      <style>.o_main_navbar {display:none !important;background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '5'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n+      <style>.o_main_navbar {display:none !important; background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n                                          background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '6'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #87AFC4, #87AFC4); \n+      <style>.o_main_navbar {display:none !important; background: linear-gradient(45deg, #87AFC4, #87AFC4); \n                                          background-color: #87AFC4!important;border-bottom: 0px;}</style></t>\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '7'\">\n-      <style>.o_main_navbar {background: linear-gradient(45deg, #77B691, #77B691); \n+      <style>.o_main_navbar {display:none !important; background: linear-gradient(45deg, #77B691, #77B691); \n                                          background-color: #77B691!important;border-bottom: 0px;}</style></t>\n    </xpath>\n </data>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702056153150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n <!-- Odoo 16 -->\n-<data t-name=\"Helloo\" inherit_id=\"web.layout\">\n+<data t-name=\"Helloo\" inherit_id=\"Web.layout\">\n   <xpath expr=\"//body\" position=\"inside\">\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n       <style>.o_main_navbar {display:none !important;background: linear-gradient(45deg, #57596F, #57596F); \n                                          background-color: #57596F!important;border-bottom: 0px;}</style></t> \n"
+                },
+                {
+                    "date": 1702284538130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +0,0 @@\n-<!-- Odoo 16 -->\n-<data t-name=\"Helloo\" inherit_id=\"Web.layout\">\n-  <xpath expr=\"//body\" position=\"inside\">\n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n-      <style>.o_main_navbar {display:none !important;background: linear-gradient(45deg, #57596F, #57596F); \n-                                         background-color: #57596F!important;border-bottom: 0px;}</style></t> \n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '5'\">\n-      <style>.o_main_navbar {display:none !important; background: linear-gradient(45deg, #6B3C3C, #6B3C3C); \n-                                         background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>\n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '6'\">\n-      <style>.o_main_navbar {display:none !important; background: linear-gradient(45deg, #87AFC4, #87AFC4); \n-                                         background-color: #87AFC4!important;border-bottom: 0px;}</style></t>\n-    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '7'\">\n-      <style>.o_main_navbar {display:none !important; background: linear-gradient(45deg, #77B691, #77B691); \n-                                         background-color: #77B691!important;border-bottom: 0px;}</style></t>\n-   </xpath>\n-</data>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702046078028,
+            "name": "Commit-0",
+            "content": "<template id='my_navbar_web_layout' inherit_id='web.layout'>\n    <data inherit_id=\"web.layout\">\n        <xpath expr=\"//body\" position=\"inside\">\n            <t>\n                <div>Fuck You </div>\n            </t>\n            <t t-set=\"color\" t-value='request.env[\"ir.config_parameter\"].sudo().get_param(\"my_settings.nav_bar_color\") if request else False' />\n            <t t-if='color'>\n                <style>.o_main_navbar {background-color:<t t-esc='color'/>\n!important;border-bottom: 0px;}</style>\n            </t>\n        </xpath>\n    </data>\n</template>"
+        }
+    ]
+}

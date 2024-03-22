@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 20,
             "patches": [
                 {
                     "date": 1701100600540,
@@ -76,6 +76,18 @@
                 {
                     "date": 1701161417392,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         result = super().write(values)\n         return result\n \n     def button_fix_amount(self):\n-\n+        pass\n         #    \n         # _logger.info(self.amount_untaxed)  \n         untaxed_amount = Decimal(str(self.amount_untaxed))\n         self.old_amount_tax = self.amount_tax\n"
+                },
+                {
+                    "date": 1701162408579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,16 +16,5 @@\n         _logger.info(\"end !@@@@@@@!@!!@@!@#$!@#$!@$@!#$!@$!@#$!@$!@$!@#$!@#$!@#$!@#$!@#$!@#$!@$!@#$@#\")\n         result = super().write(values)\n         return result\n \n-    def button_fix_amount(self):\n-        pass\n-        #    \n-        # _logger.info(self.amount_untaxed)  \n-        untaxed_amount = Decimal(str(self.amount_untaxed))\n-        self.old_amount_tax = self.amount_tax\n-        new_tax_amount = (untaxed_amount * Decimal('0.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_EVEN)\n-\n-        _logger.info(\")))))))))))))))(((((((((((((((((((((((())))))))))))))))))))))))\")\n-        _logger.info(new_tax_amount)\n-        \n-        return self.write({'amount_tax': new_tax_amount})\n\\ No newline at end of file\n+  \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1701869380971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n _logger = logging.getLogger(__name__)\n class AccountMoveInherit(models.Model):\n     _inherit = \"account.move\"\n-\n+    _order = 'name'\n     # old_tax_value \n     old_amount_tax = fields.Float(string='Old Tax Amount', readonly=True, help=\"Stores the old tax amount before it was last updated.\")\n \n     def write(self, values):\n"
+                },
+                {
+                    "date": 1701869511182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n _logger = logging.getLogger(__name__)\n class AccountMoveInherit(models.Model):\n     _inherit = \"account.move\"\n-    _order = 'name'\n+    _order = 'name desc'\n     # old_tax_value \n     old_amount_tax = fields.Float(string='Old Tax Amount', readonly=True, help=\"Stores the old tax amount before it was last updated.\")\n \n     def write(self, values):\n"
                 }
             ],
             "date": 1701100600540,

@@ -80,11 +80,11 @@
             </t>
             <!-- Anass fix devis colspan here -->
             <!-- because of line_section colspan ,if you remove this code it make colspan not for all line -->
-            <!-- <t t-if="(record.data.display_type === 'line_section' or record.data.display_type === 'line_note')">
+            <t t-if="(record.data.display_type === 'line_section' or record.data.display_type === 'line_note')">
                 <td tabindex="-1">
                     <span><span>
                 </td>
-            </t> -->
+            </t>
         </xpath>
     </t>
 </template>

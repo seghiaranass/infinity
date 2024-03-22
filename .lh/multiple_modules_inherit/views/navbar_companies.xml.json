@@ -1,0 +1,30 @@
+{
+    "sourceFile": "multiple_modules_inherit/views/navbar_companies.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1702284675663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702284689757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n+<odoo></odoo>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702284815774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,11 @@\n <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n-<odoo></odoo>\n\\ No newline at end of file\n+<data inherit_id=\"web.layout\">\n+  <xpath expr=\"//body\" position=\"inside\">\n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n+      <style>.o_main_navbar {background: linear-gradient(45deg, #213da5, #01074a) !important; \n+                                         background-color: #57596F!important;border-bottom: 0px; !important}</style></t> \n+    <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n+      <style>.o_main_navbar {background:linear-gradient(45deg, #19af90, #323332) !important; \n+                                         background-color: #2e7c25 !important; border-bottom: 0px !important;}</style></t>\n+   </xpath>\n+</data>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1702285008755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n-<data inherit_id=\"web.layout\">\n+<!-- <data inherit_id=\"web.layout\">\n   <xpath expr=\"//body\" position=\"inside\">\n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'\">\n       <style>.o_main_navbar {background: linear-gradient(45deg, #213da5, #01074a) !important; \n                                          background-color: #57596F!important;border-bottom: 0px; !important}</style></t> \n     <t t-if=\"request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'\">\n       <style>.o_main_navbar {background:linear-gradient(45deg, #19af90, #323332) !important; \n                                          background-color: #2e7c25 !important; border-bottom: 0px !important;}</style></t>\n    </xpath>\n\\ No newline at end of file\n-</data>\n+</data> -->\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1702284675663,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+        }
+    ]
+}

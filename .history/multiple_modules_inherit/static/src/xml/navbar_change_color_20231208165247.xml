@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template t-inherit="web.NavBar">
+    <t
+    t-name="tttt"
+    t-inherit="web.NavBar"
+>
+ <xpath expr="//header[@class='o_navbar']" position="before">
+   <div>Fuck </div>
+
+   </t>
+
+      </xpath>
+
+</template>

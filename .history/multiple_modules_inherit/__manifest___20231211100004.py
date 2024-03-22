@@ -7,8 +7,6 @@
     'data': [
         # 'views/add_column_number.xml',
         'views/sale.view_order_form.xml',       
-        'views/add_bank_date_to_account_move.xml',       
-        'views/sale_order_line_custom.xml',       
 
 
     ],

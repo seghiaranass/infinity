@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data inherit_id="web.layout">
+  <xpath expr="//body" position="inside">
+    <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
+      <style>.o_main_navbar {background: linear-gradient(45deg, #213da5, #01074a) !important; 
+                                         background-color: #57596F!important;border-bottom: 0px; !important}</style></t> 
+    <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '2'">
+      <style>.o_main_navbar {background:linear-gradient(45deg, #19af90, #323332) !important; 
+                                         background-color: #2e7c25 !important; border-bottom: 0px !important;}</style></t>
+   </xpath>
+</data>

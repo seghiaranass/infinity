@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+  
+     <t
+    t-name="navBar2"
+    t-inherit="web.NavBar"
+    t-inherit-mode="extension"
+    owl="1">
+    <t>
+
+        <xpath expr="//header" position="inside">
+          <h1>Hello</h1>
+        </xpath>
+
+
+
+    </t>
+
+
+</template>

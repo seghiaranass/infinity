@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <t
+    t-name="change_navbarColor"
+    t-inherit="web.NavBar"
+    owl="1"
+>
+<xpath expr="//div" position="inside">
+    <div style="width:100px; max-width:100px" class="row_no">#</div>
+</xpath>
+<xpath expr="//div" position="inside">
+    <hr/>
+</xpath>
+</t>
+
+    
+ 
+</template>

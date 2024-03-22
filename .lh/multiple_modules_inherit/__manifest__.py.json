@@ -1,0 +1,58 @@
+{
+    "sourceFile": "multiple_modules_inherit/__manifest__.py",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1702046109823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1702047490687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             # \"multiple_modules_inherit/static/src/js/sale_order_scripts.js\",\n             \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n             \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n-            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n+            # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n             'multiple_modules_inherit/static/src/css/style.css',\n         ],\n             'web.assets_qweb': [\n                   \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n"
+                },
+                {
+                    "date": 1702049442828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             # \"multiple_modules_inherit/static/src/js/sale_order_scripts.js\",\n             \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n             \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n-            # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n+            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n             'multiple_modules_inherit/static/src/css/style.css',\n         ],\n             'web.assets_qweb': [\n                   \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n"
+                },
+                {
+                    "date": 1702049813234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             # \"multiple_modules_inherit/static/src/js/sale_order_scripts.js\",\n             \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n             \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n-            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n+            # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n             'multiple_modules_inherit/static/src/css/style.css',\n         ],\n             'web.assets_qweb': [\n                   \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n"
+                },
+                {
+                    "date": 1702049851275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             # \"multiple_modules_inherit/static/src/js/sale_order_scripts.js\",\n             \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n             \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n-            # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n+            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n             'multiple_modules_inherit/static/src/css/style.css',\n         ],\n             'web.assets_qweb': [\n                   \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n"
+                },
+                {
+                    "date": 1702055328716,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,8 @@\n         \n         },\n \n \n+ 'depends': ['base','web','mail'],  # This is the key addition you should make\n \n-\n     'installable': True,\n }\n"
+                },
+                {
+                    "date": 1702055359268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,10 @@\n         \n         },\n \n \n- 'depends': ['base','web','mail'],  # This is the key addition you should make\n+ \n \n     'installable': True,\n+\n+    'depends': ['base','web','mail'],  # This is the key addition you should make\n }\n"
+                },
+                {
+                    "date": 1702055502891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,8 @@\n         \n         },\n \n \n- \n+ 'depends': ['base','web','account','mail','sale'],  # This is the key addition you should make\n \n     'installable': True,\n-\n-    'depends': ['base','web','mail'],  # This is the key addition you should make\n }\n"
+                },
+                {
+                    "date": 1702056224774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             # \"multiple_modules_inherit/static/src/js/sale_order_scripts.js\",\n             \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n             \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n-            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n+            # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n             'multiple_modules_inherit/static/src/css/style.css',\n         ],\n             'web.assets_qweb': [\n                   \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n"
+                },
+                {
+                    "date": 1702284730879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n     'depends': ['base','web','sale','account','purchase'],\n     'data': [\n         # 'views/add_column_number.xml',\n         'views/sale.view_order_form.xml',\n+        'views/navbar_companies.xml',\n        \n \n \n     ],\n@@ -18,8 +19,9 @@\n             \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n             # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n             'multiple_modules_inherit/static/src/css/style.css',\n+            \n         ],\n             'web.assets_qweb': [\n                   \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n                 \n"
+                },
+                {
+                    "date": 1702285084712,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,9 @@\n     'category': 'Sales',\n     'depends': ['base','web','sale','account','purchase'],\n     'data': [\n         # 'views/add_column_number.xml',\n-        'views/sale.view_order_form.xml',\n-        'views/navbar_companies.xml',\n-       \n+        'views/sale.view_order_form.xml',       \n \n \n     ],\n     'assets': {\n"
+                }
+            ],
+            "date": 1702046109823,
+            "name": "Commit-0",
+            "content": "{\n    'name': 'Multiple Modules Inherit',\n    'version': '1.0',\n    'summary': 'Inherit Multiple Modules and add custom JS and XML',\n    'category': 'Sales',\n    'depends': ['base','web','sale','account','purchase'],\n    'data': [\n        # 'views/add_column_number.xml',\n        'views/sale.view_order_form.xml',\n       \n\n\n    ],\n    'assets': {\n        'web.assets_backend': [\n            # \"multiple_modules_inherit/static/src/js/sale_order_scripts.js\",\n            \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n            \"multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js\",\n            'multiple_modules_inherit/static/src/xml/sale_order_views.xml',\n            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',\n            'multiple_modules_inherit/static/src/css/style.css',\n        ],\n            'web.assets_qweb': [\n                  \"multiple_modules_inherit/static/src/js/many2many_tags_field.js\",\n                \n            ],\n\n        \n        \n        },\n\n\n\n\n    'installable': True,\n}\n"
+        }
+    ]
+}

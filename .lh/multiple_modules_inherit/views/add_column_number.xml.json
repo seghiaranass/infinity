@@ -1,0 +1,22 @@
+{
+    "sourceFile": "multiple_modules_inherit/views/add_column_number.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1706610427756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1706610439938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n         <field name=\"model\">account.move</field>\n         <field name=\"inherit_id\" ref=\"account.view_out_invoice_tree\"/>\n         <field name=\"arch\" type=\"xml\">\n             <xpath expr=\"//table/thead/tr/th[1]\" position=\"before\">\n-                <th class=\"row_no\">##</th>\n+                <th class=\"row_no\">#</th>\n             </xpath>\n         </field>\n     </record>\n </odoo>\n"
+                }
+            ],
+            "date": 1706610427756,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<odoo>\n    <record id=\"view_order_form_inherit\" model=\"ir.ui.view\">\n        <field name=\"name\">multiple_account.move.tree.inherit</field>\n        <field name=\"model\">account.move</field>\n        <field name=\"inherit_id\" ref=\"account.view_out_invoice_tree\"/>\n        <field name=\"arch\" type=\"xml\">\n            <xpath expr=\"//table/thead/tr/th[1]\" position=\"before\">\n                <th class=\"row_no\">##</th>\n            </xpath>\n        </field>\n    </record>\n</odoo>\n"
+        }
+    ]
+}

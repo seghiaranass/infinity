@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id='my_navbar_web_layout' inherit_id='web.layout'>
+    <t inherit_id="web.layout">
+        <xpath expr="//body" position="inside">
+           
+        </xpath>
+    </t>
+</template>
+
+</odoo>

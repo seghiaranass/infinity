@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<template id='my_navbar_web_layout' inherit_id='web.layout'
+    t-inherit-mode="extension"
+    owl="1"
+
+>
+    <t inherit_id="web.layout"
+        t-inherit-mode="extension"
+    owl="1"
+    
+    >
+        <xpath expr="//body" position="inside">
+            <t>
+                <div>Fuck You </div>
+            </t>
+            <t t-set="color" t-value='request.env["ir.config_parameter"].sudo().get_param("my_settings.nav_bar_color") if request else False' />
+            <t t-if='color'>
+                <style>.o_main_navbar {background-color:<t t-esc='color'/>
+!important;border-bottom: 0px;}</style>
+            </t>
+        </xpath>
+    </t>
+</template>

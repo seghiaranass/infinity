@@ -6,9 +6,8 @@
     'depends': ['base','web','sale','account','purchase'],
     'data': [
         # 'views/add_column_number.xml',
-        'views/sale.view_order_form.xml',       
-        'views/add_bank_date_to_account_move.xml',       
-        'views/sale_order_line_custom.xml',       
+        'views/sale.view_order_form.xml',
+       
 
 
     ],
@@ -18,9 +17,8 @@
             "multiple_modules_inherit/static/src/js/many2many_tags_field.js",
             "multiple_modules_inherit/static/src/js/custom_tree_view_behavior.js",
             'multiple_modules_inherit/static/src/xml/sale_order_views.xml',
-            # 'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',
+            'multiple_modules_inherit/static/src/xml/navbar_change_color.xml',
             'multiple_modules_inherit/static/src/css/style.css',
-            
         ],
             'web.assets_qweb': [
                   "multiple_modules_inherit/static/src/js/many2many_tags_field.js",
@@ -32,7 +30,9 @@
         },
 
 
- 'depends': ['base','web','account','mail','sale'],  # This is the key addition you should make
+ 
 
     'installable': True,
+
+    'depends': ['base','web','mail'],  # This is the key addition you should make
 }

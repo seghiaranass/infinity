@@ -1,0 +1,7 @@
+<template id='my_navbar_web_layout' inherit_id='web.Layout'>
+    <data inherit_id="web.layout">
+        <xpath expr="//body" position="inside">
+           
+        </xpath>
+    </data>
+</template>

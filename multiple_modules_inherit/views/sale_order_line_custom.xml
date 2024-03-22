@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <!-- Inherit the sale order form view -->
+        <record id="view_order_form_inherit_custom" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.custom</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Locate the tree view of sale.order.line using XPath -->
+                <xpath expr="//field[@name='order_line']/tree/field[last()]" position="after">
+                    <!-- Add a new column for the custom selection field -->
+                    <field name="custom_field"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
